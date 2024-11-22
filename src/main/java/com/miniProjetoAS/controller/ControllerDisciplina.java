@@ -8,12 +8,10 @@ import com.miniProjetoAS.model.Disciplina;
 import com.miniProjetoAS.microServices.servicoDisciplinas;
 
 import java.util.List;
-import java.util.Scanner;
 import java.util.stream.Collectors;
 
 public class ControllerDisciplina {
     private final DisciplinaService DisciplinaService;
-    private final Scanner sc = new Scanner(System.in);
     private final EstudanteService estudanteService = new EstudanteService();
     private final servicoDisciplinas servicoDisciplinas = new servicoDisciplinas();
 

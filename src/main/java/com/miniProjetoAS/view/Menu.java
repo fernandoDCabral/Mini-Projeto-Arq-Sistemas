@@ -20,6 +20,7 @@ public class Menu {
 
     private final ControllerEstudante controllerEstudante;
     private final servicoDisciplinas servicoDisciplinas = new servicoDisciplinas();
+    private final servicoLivros servicoLivros = new servicoLivros();
     private final ControllerDisciplina controllerDisciplina;
     private final ControllerLivro controllerLivro;
     private final Scanner sc = new Scanner(System.in);
@@ -136,9 +137,14 @@ public class Menu {
     }
 
     private void reservarLivro() {
+        List<Livros> livrosDisponiveis = servicoLivros.obterLivros();
+        System.out.println("Livros disponíveis para reserva:");
+        livrosDisponiveis.forEach(System.out::println);
         System.out.print("Digite o ID do estudante: ");
         int estudanteId = sc.nextInt();
-        String resposta = controllerLivro.reservarLivro(estudanteId);
+        System.out.print("Digite o ID do livro: ");
+        int livroId = sc.nextInt();
+        String resposta = controllerLivro.reservarLivro(estudanteId, livroId);
         System.out.println(resposta);
     }
 

@@ -8,12 +8,10 @@ import com.miniProjetoAS.model.Livros;
 import com.miniProjetoAS.microServices.servicoLivros;
 
 import java.util.List;
-import java.util.Scanner;
 import java.util.stream.Collectors;
 
 public class ControllerLivro {
     private final LivroService livroService;
-    private final Scanner sc = new Scanner(System.in);
     private final servicoLivros servicoLivros = new servicoLivros();
     private final EstudanteService estudanteService = new EstudanteService();
 
@@ -21,16 +19,11 @@ public class ControllerLivro {
         this.livroService = livroService;
     }
 
-    public String reservarLivro(int estudanteId) {
+    public String reservarLivro(int estudanteId, int livroId) {
         Estudante ID = estudanteService.buscarEstudantePorId(estudanteId);
         if (ID != null && "ativo".equalsIgnoreCase(ID.isStatus())) {
             List<Livros> livrosDisponiveis = servicoLivros.obterLivros();
-            System.out.println("Livros disponíveis para reserva:");
-            livrosDisponiveis.forEach(System.out::println);
-
-            System.out.print("Digite o ID do livro para reservar: ");
-            int livroId = sc.nextInt();
-
+            int LivroId = livroId;
             Livros livroEscolhido = livrosDisponiveis.stream()
                     .filter(l -> l.getId() == livroId)
                     .findFirst()
