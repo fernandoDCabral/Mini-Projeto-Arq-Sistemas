@@ -10,8 +10,7 @@ import com.miniProjetoAS.service.DisciplinaService;
 import com.miniProjetoAS.microServices.servicoLivros;
 import com.miniProjetoAS.microServices.servicoDisciplinas;
 
-import com.miniProjetoAS.model.Disciplina;
-import com.miniProjetoAS.model.Livros;
+
 
 import java.util.List;
 import java.util.Scanner;
@@ -19,8 +18,6 @@ import java.util.Scanner;
 public class Menu {
 
     private final ControllerEstudante controllerEstudante;
-    private final servicoDisciplinas servicoDisciplinas = new servicoDisciplinas();
-    private final servicoLivros servicoLivros = new servicoLivros();
     private final ControllerDisciplina controllerDisciplina;
     private final ControllerLivro controllerLivro;
     private final Scanner sc = new Scanner(System.in);
@@ -109,9 +106,7 @@ public class Menu {
     }
 
     private void matricularEstudanteEmDisciplina() {
-        List<Disciplina> disciplinas = servicoDisciplinas.obterDisciplinas();
-        System.out.println("Disciplinas disponíveis para matrícula:");
-        disciplinas.forEach(System.out::println);
+        controllerDisciplina.mostrarDisciplinas();
         System.out.print("Digite o ID do estudante: ");
         int estudanteId = sc.nextInt();
         System.out.print("Digite o ID da disciplina: ");
@@ -137,9 +132,7 @@ public class Menu {
     }
 
     private void reservarLivro() {
-        List<Livros> livrosDisponiveis = servicoLivros.obterLivros();
-        System.out.println("Livros disponíveis para reserva:");
-        livrosDisponiveis.forEach(System.out::println);
+        controllerLivro.mostrarLivros();
         System.out.print("Digite o ID do estudante: ");
         int estudanteId = sc.nextInt();
         System.out.print("Digite o ID do livro: ");

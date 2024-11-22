@@ -50,4 +50,10 @@ public class ControllerDisciplina {
         boolean sucesso = DisciplinaService.removerDisciplina(estudanteId, disciplinaId);
         return sucesso ? "Disciplina removida com sucesso." : "Não foi possível remover a disciplina.";
     }
+
+    public void mostrarDisciplinas() {
+        List<Disciplina> disciplinas = servicoDisciplinas.obterDisciplinas();
+        System.out.println("Disciplinas disponíveis para matrícula:");
+        disciplinas.forEach(System.out::println);
+    }
 }

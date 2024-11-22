@@ -1,5 +1,6 @@
 package com.miniProjetoAS.controller;
 
+import com.miniProjetoAS.model.Disciplina;
 import com.miniProjetoAS.model.Estudante;
 import com.miniProjetoAS.service.EstudanteService;
 import com.miniProjetoAS.service.LivroService;
@@ -49,5 +50,11 @@ public class ControllerLivro {
     public String cancelarReserva(int estudanteId, int livroId) {
         boolean sucesso = livroService.cancelarReserva(estudanteId, livroId);
         return sucesso ? "Reserva cancelada com sucesso." : "Não foi possível cancelar a reserva.";
+    }
+
+    public void mostrarLivros() {
+        List<Livros> livrosDisponiveis = servicoLivros.obterLivros();
+        System.out.println("Livros disponíveis para reserva:");
+        livrosDisponiveis.forEach(System.out::println);
     }
 }
