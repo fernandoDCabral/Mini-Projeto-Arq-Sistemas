@@ -17,16 +17,15 @@ import java.util.Scanner;
 
 public class Menu {
 
-    private final ControllerEstudante controllerEstudante;
-    private final ControllerDisciplina controllerDisciplina;
-    private final ControllerLivro controllerLivro;
-    private final Scanner sc = new Scanner(System.in);
+    private  ControllerEstudante controllerEstudante;
+    private  ControllerDisciplina controllerDisciplina;
+    private  ControllerLivro controllerLivro;
+    private  Scanner sc = new Scanner(System.in);
 
     public Menu() {
 
         DisciplinaService matriculaService = new DisciplinaService(new servicoDisciplinas());
         LivroService livroService = new LivroService(new servicoLivros());
-
 
         controllerEstudante = new ControllerEstudante();
         controllerDisciplina = new ControllerDisciplina(matriculaService);

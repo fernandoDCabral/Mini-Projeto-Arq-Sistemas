@@ -1,9 +1,10 @@
 package com.miniProjetoAS.controller;
 
-import com.miniProjetoAS.service.EstudanteService;
 import com.miniProjetoAS.model.Estudante;
-import com.miniProjetoAS.service.DisciplinaService;
+import com.miniProjetoAS.service.EstudanteService;
+
 import com.miniProjetoAS.model.Disciplina;
+import com.miniProjetoAS.service.DisciplinaService;
 
 import com.miniProjetoAS.microServices.servicoDisciplinas;
 
