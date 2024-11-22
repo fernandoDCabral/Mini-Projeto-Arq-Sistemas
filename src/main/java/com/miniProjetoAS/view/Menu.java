@@ -4,18 +4,22 @@ import com.miniProjetoAS.controller.ControllerEstudante;
 import com.miniProjetoAS.controller.ControllerDisciplina;
 import com.miniProjetoAS.controller.ControllerLivro;
 
-import com.miniProjetoAS.service.EstudanteService;
 import com.miniProjetoAS.service.LivroService;
 import com.miniProjetoAS.service.DisciplinaService;
 
 import com.miniProjetoAS.microServices.servicoLivros;
 import com.miniProjetoAS.microServices.servicoDisciplinas;
 
+import com.miniProjetoAS.model.Disciplina;
+import com.miniProjetoAS.model.Livros;
+
+import java.util.List;
 import java.util.Scanner;
 
 public class Menu {
 
     private final ControllerEstudante controllerEstudante;
+    private final servicoDisciplinas servicoDisciplinas = new servicoDisciplinas();
     private final ControllerDisciplina controllerDisciplina;
     private final ControllerLivro controllerLivro;
     private final Scanner sc = new Scanner(System.in);
@@ -104,9 +108,14 @@ public class Menu {
     }
 
     private void matricularEstudanteEmDisciplina() {
+        List<Disciplina> disciplinas = servicoDisciplinas.obterDisciplinas();
+        System.out.println("Disciplinas disponíveis para matrícula:");
+        disciplinas.forEach(System.out::println);
         System.out.print("Digite o ID do estudante: ");
         int estudanteId = sc.nextInt();
-        String resposta = controllerDisciplina.matricularEstudante(estudanteId);
+        System.out.print("Digite o ID da disciplina: ");
+        int disciplinaID = sc.nextInt();
+        String resposta = controllerDisciplina.matricularEstudante(estudanteId, disciplinaID);
         System.out.println(resposta);
     }
 

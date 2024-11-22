@@ -21,16 +21,11 @@ public class ControllerDisciplina {
         this.DisciplinaService = matriculaService;
     }
 
-    public String matricularEstudante(int estudanteId) {
+    public String matricularEstudante(int estudanteId, int disciplinaId) {
         Estudante ID = estudanteService.buscarEstudantePorId(estudanteId);
         if (ID != null) {
             List<Disciplina> disciplinas = servicoDisciplinas.obterDisciplinas();
-            System.out.println("Disciplinas disponíveis para matrícula:");
-            disciplinas.forEach(System.out::println);
-
-            System.out.print("Digite o ID da disciplina para matrícula: ");
-            int disciplinaId = sc.nextInt();
-
+            int DisciplinaId = disciplinaId;
             Disciplina disciplinaEscolhida = disciplinas.stream()
                     .filter(d -> d.getId() == disciplinaId)
                     .findFirst()
