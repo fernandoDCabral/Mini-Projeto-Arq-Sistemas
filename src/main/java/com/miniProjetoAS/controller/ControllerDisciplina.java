@@ -16,8 +16,8 @@ public class ControllerDisciplina {
     private final EstudanteService estudanteService = new EstudanteService();
     private final servicoDisciplinas servicoDisciplinas = new servicoDisciplinas();
 
-    public ControllerDisciplina(DisciplinaService matriculaService) {
-        this.DisciplinaService = matriculaService;
+    public ControllerDisciplina() {
+        this.DisciplinaService = new DisciplinaService(new servicoDisciplinas());
     }
 
     public String matricularEstudante(int estudanteId, int disciplinaId) {

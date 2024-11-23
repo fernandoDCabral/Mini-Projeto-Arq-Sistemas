@@ -4,15 +4,6 @@ import com.miniProjetoAS.controller.ControllerEstudante;
 import com.miniProjetoAS.controller.ControllerDisciplina;
 import com.miniProjetoAS.controller.ControllerLivro;
 
-import com.miniProjetoAS.service.LivroService;
-import com.miniProjetoAS.service.DisciplinaService;
-
-import com.miniProjetoAS.microServices.servicoLivros;
-import com.miniProjetoAS.microServices.servicoDisciplinas;
-
-
-
-import java.util.List;
 import java.util.Scanner;
 
 public class Menu {
@@ -24,12 +15,9 @@ public class Menu {
 
     public Menu() {
 
-        DisciplinaService matriculaService = new DisciplinaService(new servicoDisciplinas());
-        LivroService livroService = new LivroService(new servicoLivros());
-
         controllerEstudante = new ControllerEstudante();
-        controllerDisciplina = new ControllerDisciplina(matriculaService);
-        controllerLivro = new ControllerLivro(livroService);
+        controllerDisciplina = new ControllerDisciplina();
+        controllerLivro = new ControllerLivro();
     }
 
     public void iniciar() {

@@ -16,8 +16,8 @@ public class ControllerLivro {
     private final servicoLivros servicoLivros = new servicoLivros();
     private final EstudanteService estudanteService = new EstudanteService();
 
-    public ControllerLivro(LivroService livroService) {
-        this.livroService = livroService;
+    public ControllerLivro() {
+        this.livroService = new LivroService(new servicoLivros());
     }
 
     public String reservarLivro(int estudanteId, int livroId) {
