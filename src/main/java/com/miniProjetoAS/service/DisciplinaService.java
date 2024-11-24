@@ -2,7 +2,7 @@ package com.miniProjetoAS.service;
 
 import com.miniProjetoAS.model.Estudante;
 import com.miniProjetoAS.model.Disciplina;
-import com.miniProjetoAS.microServices.interfaceDisciplina;
+import com.miniProjetoAS.microServices.InterfaceHttpDisciplina;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -11,10 +11,10 @@ import java.util.Map;
 
 
 public class DisciplinaService {
-    private final interfaceDisciplina disciplinaService;
+    private final InterfaceHttpDisciplina disciplinaService;
     private final Map<Integer, List<Disciplina>> matriculas;
 
-    public DisciplinaService(interfaceDisciplina disciplinaService) {
+    public DisciplinaService(InterfaceHttpDisciplina disciplinaService) {
         this.disciplinaService = disciplinaService;
         this.matriculas = new HashMap<>();
     }

@@ -2,7 +2,7 @@ package com.miniProjetoAS.service;
 
 import com.miniProjetoAS.model.Estudante;
 import com.miniProjetoAS.model.Livros;
-import com.miniProjetoAS.microServices.interfaceLivros;
+import com.miniProjetoAS.microServices.InterfaceHttpLivros;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -10,10 +10,10 @@ import java.util.List;
 import java.util.Map;
 
 public class LivroService {
-    private final interfaceLivros livroService;
+    private final InterfaceHttpLivros livroService;
     private final Map<Integer, List<Livros>> reservas;
 
-    public LivroService(interfaceLivros livroService) {
+    public LivroService(InterfaceHttpLivros livroService) {
         this.livroService = livroService;
         this.reservas = new HashMap<>();
     }

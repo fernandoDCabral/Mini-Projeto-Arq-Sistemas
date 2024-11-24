@@ -8,7 +8,7 @@ import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
 import java.util.List;
 
-public class servicoLivros implements interfaceLivros {
+public class HttpLivros implements InterfaceHttpLivros {
 
     private final String endpoint = "https://qiiw8bgxka.execute-api.us-east-2.amazonaws.com/acervo/biblioteca";
 

@@ -6,18 +6,18 @@ import com.miniProjetoAS.service.EstudanteService;
 import com.miniProjetoAS.model.Livros;
 import com.miniProjetoAS.service.LivroService;
 
-import com.miniProjetoAS.microServices.servicoLivros;
+import com.miniProjetoAS.microServices.HttpLivros;
 
 import java.util.List;
 import java.util.stream.Collectors;
 
 public class ControllerLivro {
     private final LivroService livroService;
-    private final servicoLivros servicoLivros = new servicoLivros();
+    private final HttpLivros servicoLivros = new HttpLivros();
     private final EstudanteService estudanteService = new EstudanteService();
 
     public ControllerLivro() {
-        this.livroService = new LivroService(new servicoLivros());
+        this.livroService = new LivroService(new HttpLivros());
     }
 
     public String reservarLivro(int estudanteId, int livroId) {

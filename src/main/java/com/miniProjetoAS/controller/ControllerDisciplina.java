@@ -6,7 +6,7 @@ import com.miniProjetoAS.service.EstudanteService;
 import com.miniProjetoAS.model.Disciplina;
 import com.miniProjetoAS.service.DisciplinaService;
 
-import com.miniProjetoAS.microServices.servicoDisciplinas;
+import com.miniProjetoAS.microServices.HttpDisciplinas;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -14,10 +14,10 @@ import java.util.stream.Collectors;
 public class ControllerDisciplina {
     private final DisciplinaService DisciplinaService;
     private final EstudanteService estudanteService = new EstudanteService();
-    private final servicoDisciplinas servicoDisciplinas = new servicoDisciplinas();
+    private final HttpDisciplinas servicoDisciplinas = new HttpDisciplinas();
 
     public ControllerDisciplina() {
-        this.DisciplinaService = new DisciplinaService(new servicoDisciplinas());
+        this.DisciplinaService = new DisciplinaService(new HttpDisciplinas());
     }
 
     public String matricularEstudante(int estudanteId, int disciplinaId) {

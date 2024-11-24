@@ -4,6 +4,6 @@ import com.miniProjetoAS.model.Estudante;
 
 import java.util.List;
 
-public interface interfaceEstudante {
+public interface InterfaceHttpEstudante {
     List<Estudante> obterEstudantes();
 }

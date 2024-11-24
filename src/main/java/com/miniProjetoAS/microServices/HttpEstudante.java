@@ -9,7 +9,7 @@ import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
 import java.util.List;
 
-public class servicoEstudante implements interfaceEstudante {
+public class HttpEstudante implements InterfaceHttpEstudante {
 
     private final String endpoint = "https://rmi6vdpsq8.execute-api.us-east-2.amazonaws.com/msAluno";
     private final HttpClient client = HttpClient.newHttpClient();

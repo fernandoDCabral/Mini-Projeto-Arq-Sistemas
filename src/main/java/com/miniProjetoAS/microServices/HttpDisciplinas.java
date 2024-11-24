@@ -8,7 +8,7 @@ import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
 import java.util.List;
 
-public class servicoDisciplinas implements interfaceDisciplina {
+public class HttpDisciplinas implements InterfaceHttpDisciplina {
 
     private final String endpoint = "https://sswfuybfs8.execute-api.us-east-2.amazonaws.com/disciplinaServico/msDisciplina";
 

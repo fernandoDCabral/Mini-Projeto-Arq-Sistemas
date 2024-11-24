@@ -4,6 +4,6 @@ import com.miniProjetoAS.model.Disciplina;
 
 import java.util.List;
 
-public interface interfaceDisciplina {
+public interface InterfaceHttpDisciplina {
     List<Disciplina> obterDisciplinas();
 }

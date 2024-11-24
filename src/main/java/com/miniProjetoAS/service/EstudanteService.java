@@ -1,13 +1,13 @@
 package com.miniProjetoAS.service;
 
-import com.miniProjetoAS.microServices.servicoEstudante;
+import com.miniProjetoAS.microServices.HttpEstudante;
 import com.miniProjetoAS.model.Estudante;
 
 import java.util.List;
 import java.util.stream.Collectors;
 
 public class EstudanteService {
-    private final servicoEstudante estudanteService = new servicoEstudante();
+    private final HttpEstudante estudanteService = new HttpEstudante();
 
     public List<Estudante> obterEstudantesDeHistoriaPresencial() {
         return estudanteService.obterEstudantes().stream()
