@@ -1,13 +1,13 @@
 package com.miniProjetoAS.model;
 
-public class Livros {
+public class Livro {
     private int id;
     private String titulo;
     private String autor;
     private int ano;
     private String reservado;
 
-    public Livros(int id, String titulo, String autor, int ano, String reservado) {
+    public Livro(int id, String titulo, String autor, int ano, String reservado) {
         this.id = id;
         this.titulo = titulo;
         this.autor = autor;

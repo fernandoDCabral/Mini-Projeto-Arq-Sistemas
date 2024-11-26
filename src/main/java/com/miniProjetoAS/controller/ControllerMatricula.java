@@ -1,29 +1,31 @@
+//botar como MATRICULA
+
 package com.miniProjetoAS.controller;
 
-import com.miniProjetoAS.model.Estudante;
-import com.miniProjetoAS.service.EstudanteService;
+import com.miniProjetoAS.model.Aluno;
+import com.miniProjetoAS.service.AlunoService;
 
 import com.miniProjetoAS.model.Disciplina;
-import com.miniProjetoAS.service.DisciplinaService;
+import com.miniProjetoAS.service.MatriculaService;
 
 import com.miniProjetoAS.microServices.HttpDisciplinas;
 
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class ControllerDisciplina {
-    private final DisciplinaService DisciplinaService;
-    private final EstudanteService estudanteService = new EstudanteService();
+public class ControllerMatricula {
+    private final MatriculaService DisciplinaService;
+    private final AlunoService estudanteService = new AlunoService();
     private final HttpDisciplinas servicoDisciplinas = new HttpDisciplinas();
 
-    public ControllerDisciplina() {
-        this.DisciplinaService = new DisciplinaService(new HttpDisciplinas());
+    public ControllerMatricula() {
+        this.DisciplinaService = new MatriculaService(new HttpDisciplinas());
     }
 
     public String matricularEstudante(int estudanteId, int disciplinaId) {
-        Estudante ID = estudanteService.buscarEstudantePorId(estudanteId);
+        Aluno ID = estudanteService.buscarEstudantePorId(estudanteId);
         if (ID != null) {
-            List<Disciplina> disciplinas = servicoDisciplinas.obterDisciplinas();
+            List<Disciplina> disciplinas = servicoDisciplinas.obterDisciplinas(); // Ir para ControllerDisciplina
             int DisciplinaId = disciplinaId;
             Disciplina disciplinaEscolhida = disciplinas.stream()
                     .filter(d -> d.getId() == disciplinaId)
@@ -52,6 +54,8 @@ public class ControllerDisciplina {
         return sucesso ? "Disciplina removida com sucesso." : "Não foi possível remover a disciplina.";
     }
 
+
+    // Ir para ControllerDisciplina
     public void mostrarDisciplinas() {
         List<Disciplina> disciplinas = servicoDisciplinas.obterDisciplinas();
         System.out.println("Disciplinas disponíveis para matrícula:");

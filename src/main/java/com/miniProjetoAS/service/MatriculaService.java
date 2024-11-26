@@ -1,8 +1,10 @@
+// Mudar para MATRICULA
+
 package com.miniProjetoAS.service;
 
-import com.miniProjetoAS.model.Estudante;
+import com.miniProjetoAS.model.Aluno;
 import com.miniProjetoAS.model.Disciplina;
-import com.miniProjetoAS.microServices.InterfaceHttpDisciplina;
+import com.miniProjetoAS.microServices.InterfaceHttpDisciplinas;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -10,16 +12,16 @@ import java.util.List;
 import java.util.Map;
 
 
-public class DisciplinaService {
-    private final InterfaceHttpDisciplina disciplinaService;
+public class MatriculaService {
+    private final InterfaceHttpDisciplinas disciplinaService;
     private final Map<Integer, List<Disciplina>> matriculas;
 
-    public DisciplinaService(InterfaceHttpDisciplina disciplinaService) {
+    public MatriculaService(InterfaceHttpDisciplinas disciplinaService) {
         this.disciplinaService = disciplinaService;
         this.matriculas = new HashMap<>();
     }
 
-    public boolean matricularEstudante(Estudante estudante, Disciplina disciplina) {
+    public boolean matricularEstudante(Aluno estudante, Disciplina disciplina) {
         if ("ativo".equalsIgnoreCase(estudante.isStatus()) &&
                 "presencial".equalsIgnoreCase(estudante.getModalidade()) &&
                 "História".equalsIgnoreCase(estudante.getCurso()) &&

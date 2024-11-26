@@ -1,6 +1,6 @@
 package com.miniProjetoAS.microServices;
 
-import com.miniProjetoAS.model.Livros;
+import com.miniProjetoAS.model.Livro;
 
 import java.net.URI;
 import java.net.http.HttpClient;
@@ -14,11 +14,11 @@ public class HttpLivros implements InterfaceHttpLivros {
 
     private final HttpClient client = HttpClient.newHttpClient();
 
-    private final parserLivros parser = new parserLivros();
+    private final parserLivro parser = new parserLivro();
 
 
     @Override
-    public List<Livros> obterLivros() {
+    public List<Livro> obterLivros() {
         HttpRequest request = HttpRequest.newBuilder()
                 .uri(URI.create(endpoint))
                 .GET()

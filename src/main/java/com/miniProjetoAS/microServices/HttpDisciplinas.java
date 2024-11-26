@@ -8,13 +8,13 @@ import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
 import java.util.List;
 
-public class HttpDisciplinas implements InterfaceHttpDisciplina {
+public class HttpDisciplinas implements InterfaceHttpDisciplinas {
 
     private final String endpoint = "https://sswfuybfs8.execute-api.us-east-2.amazonaws.com/disciplinaServico/msDisciplina";
 
     private final HttpClient client = HttpClient.newHttpClient();
 
-    private final parserDisciplinas parser = new parserDisciplinas();
+    private final parserDisciplina parser = new parserDisciplina();
 
 
     @Override

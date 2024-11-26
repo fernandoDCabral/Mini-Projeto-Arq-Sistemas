@@ -1,31 +1,31 @@
 package com.miniProjetoAS.controller;
 
-import com.miniProjetoAS.model.Estudante;
-import com.miniProjetoAS.service.EstudanteService;
+import com.miniProjetoAS.model.Aluno;
+import com.miniProjetoAS.service.AlunoService;
 
-import com.miniProjetoAS.model.Livros;
-import com.miniProjetoAS.service.LivroService;
+import com.miniProjetoAS.model.Livro;
+import com.miniProjetoAS.service.BibliotecaService;
 
 import com.miniProjetoAS.microServices.HttpLivros;
 
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class ControllerLivro {
-    private final LivroService livroService;
+public class ControllerBiblioteca {
+    private final BibliotecaService livroService;
     private final HttpLivros servicoLivros = new HttpLivros();
-    private final EstudanteService estudanteService = new EstudanteService();
+    private final AlunoService estudanteService = new AlunoService();
 
-    public ControllerLivro() {
-        this.livroService = new LivroService(new HttpLivros());
+    public ControllerBiblioteca() {
+        this.livroService = new BibliotecaService(new HttpLivros());
     }
 
     public String reservarLivro(int estudanteId, int livroId) {
-        Estudante ID = estudanteService.buscarEstudantePorId(estudanteId);
+        Aluno ID = estudanteService.buscarEstudantePorId(estudanteId);
         if (ID != null && "ativo".equalsIgnoreCase(ID.isStatus())) {
-            List<Livros> livrosDisponiveis = servicoLivros.obterLivros();
+            List<Livro> livrosDisponiveis = servicoLivros.obterLivros();//ir para controllerLivros
             int LivroId = livroId;
-            Livros livroEscolhido = livrosDisponiveis.stream()
+            Livro livroEscolhido = livrosDisponiveis.stream()
                     .filter(l -> l.getId() == livroId)
                     .findFirst()
                     .orElse(null);
@@ -41,10 +41,10 @@ public class ControllerLivro {
     }
 
     public String listarLivrosReservados(int estudanteId) {
-        List<Livros> livros = livroService.listarLivrosReservados(estudanteId);
+        List<Livro> livros = livroService.listarLivrosReservados(estudanteId);
         return livros.isEmpty()
                 ? "Nenhum livro reservado para este estudante."
-                : livros.stream().map(Livros::toString).collect(Collectors.joining("\n"));
+                : livros.stream().map(Livro::toString).collect(Collectors.joining("\n"));
     }
 
     public String cancelarReserva(int estudanteId, int livroId) {
@@ -52,8 +52,10 @@ public class ControllerLivro {
         return sucesso ? "Reserva cancelada com sucesso." : "Não foi possível cancelar a reserva.";
     }
 
+
+    //ir para controllerLivro
     public void mostrarLivros() {
-        List<Livros> livrosDisponiveis = servicoLivros.obterLivros();
+        List<Livro> livrosDisponiveis = servicoLivros.obterLivros();
         System.out.println("Livros disponíveis para reserva:");
         livrosDisponiveis.forEach(System.out::println);
     }

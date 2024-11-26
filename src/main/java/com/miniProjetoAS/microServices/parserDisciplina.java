@@ -7,7 +7,7 @@ import org.json.JSONArray;
 import java.util.ArrayList;
 import java.util.List;
 
-public class parserDisciplinas implements JsonParser<Disciplina> {
+public class parserDisciplina implements JsonParser<Disciplina> {
 
 
     @Override

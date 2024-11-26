@@ -1,9 +1,9 @@
 package com.miniProjetoAS.microServices;
 
-import com.miniProjetoAS.model.Livros;
+import com.miniProjetoAS.model.Livro;
 
 import java.util.List;
 
 public interface InterfaceHttpLivros {
-    List<Livros> obterLivros();
+    List<Livro> obterLivros();
 }

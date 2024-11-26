@@ -1,13 +1,13 @@
 package com.miniProjetoAS.model;
 
-public class Estudante {
+public class Aluno {
     private int id;
     private String nome;
     private String curso;
     private String modalidade;
     private String status;
 
-    public Estudante(int id, String nome, String curso, String modalidade, String status) {
+    public Aluno(int id, String nome, String curso, String modalidade, String status) {
         this.id = id;
         this.nome = nome;
         this.curso = curso;

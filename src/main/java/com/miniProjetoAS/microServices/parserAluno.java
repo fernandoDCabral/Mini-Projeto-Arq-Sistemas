@@ -1,23 +1,23 @@
 package com.miniProjetoAS.microServices;
 
-import com.miniProjetoAS.model.Estudante;
+import com.miniProjetoAS.model.Aluno;
 import org.json.JSONObject;
 import org.json.JSONArray;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class parserEstudantes implements JsonParser<Estudante> {
+public class parserAluno implements JsonParser<Aluno> {
 
 
     @Override
-    public List<Estudante> parse(String responseBody) {
+    public List<Aluno> parse(String responseBody) {
         JSONArray estudantesArray = new JSONArray(responseBody);
-        List<Estudante> estudantes = new ArrayList<>();
+        List<Aluno> estudantes = new ArrayList<>();
 
         for (int i = 0; i < estudantesArray.length(); i++) {
             JSONObject estudanteObj = estudantesArray.getJSONObject(i);
-            Estudante estudante = new Estudante(
+            Aluno estudante = new Aluno(
                     estudanteObj.getInt("id"),
                     estudanteObj.getString("nome"),
                     estudanteObj.getString("curso"),

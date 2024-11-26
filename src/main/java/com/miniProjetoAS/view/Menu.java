@@ -1,23 +1,23 @@
 package com.miniProjetoAS.view;
 
 import com.miniProjetoAS.controller.ControllerEstudante;
-import com.miniProjetoAS.controller.ControllerDisciplina;
-import com.miniProjetoAS.controller.ControllerLivro;
+import com.miniProjetoAS.controller.ControllerMatricula;
+import com.miniProjetoAS.controller.ControllerBiblioteca;
 
 import java.util.Scanner;
 
 public class Menu {
 
     private  ControllerEstudante controllerEstudante;
-    private  ControllerDisciplina controllerDisciplina;
-    private  ControllerLivro controllerLivro;
+    private ControllerMatricula controllerDisciplina;
+    private ControllerBiblioteca controllerLivro;
     private  Scanner sc = new Scanner(System.in);
 
     public Menu() {
 
         controllerEstudante = new ControllerEstudante();
-        controllerDisciplina = new ControllerDisciplina();
-        controllerLivro = new ControllerLivro();
+        controllerDisciplina = new ControllerMatricula();
+        controllerLivro = new ControllerBiblioteca();
     }
 
     public void iniciar() {
