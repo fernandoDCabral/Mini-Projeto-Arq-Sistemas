@@ -1,12 +1,12 @@
 package com.miniProjetoAS;
 
-import com.miniProjetoAS.view.Menu;
+import com.miniProjetoAS.view.MenuGeral;
 
 public class Main {
 
     public static void main(String[] args) {
 
-        Menu menu = new Menu();
+        MenuGeral menu = new MenuGeral();
 
         menu.iniciar();
 

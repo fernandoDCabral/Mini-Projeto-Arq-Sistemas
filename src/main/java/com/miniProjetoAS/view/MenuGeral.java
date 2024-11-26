@@ -2,13 +2,13 @@ package com.miniProjetoAS.view;
 
 import java.util.Scanner;
 
-public class Menu {
+public class MenuGeral {
     private final MenuAluno menuAluno;
     private final MenuMatricula menuMatricula;
     private final MenuBiblioteca menuBiblioteca;
     private final Scanner sc;
 
-    public Menu() {
+    public MenuGeral() {
         this.menuAluno = new MenuAluno();
         this.menuMatricula = new MenuMatricula();
         this.menuBiblioteca = new MenuBiblioteca();

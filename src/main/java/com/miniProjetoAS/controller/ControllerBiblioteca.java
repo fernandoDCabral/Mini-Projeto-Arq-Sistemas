@@ -7,7 +7,6 @@ import com.miniProjetoAS.service.LivroService;
 import com.miniProjetoAS.service.BibliotecaService;
 import com.miniProjetoAS.service.AlunoService;
 
-
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -17,10 +16,9 @@ public class ControllerBiblioteca {
     private final AlunoService estudanteService;
 
     public ControllerBiblioteca() {
-        // Usando LivroService para manipular os livros
-        this.livroService = new LivroService(new HttpLivros());  // Inicializa o LivroService
-        this.bibliotecaService = new BibliotecaService(new HttpLivros());  // Mantém a lógica de biblioteca
-        this.estudanteService = new AlunoService();  // Inicializa o serviço do aluno
+        this.livroService = new LivroService(new HttpLivros());
+        this.bibliotecaService = new BibliotecaService(new HttpLivros());
+        this.estudanteService = new AlunoService();
     }
 
     public String reservarLivro(int estudanteId, int livroId) {
@@ -55,7 +53,7 @@ public class ControllerBiblioteca {
                 : livros.stream().map(Livro::toString).collect(Collectors.joining("\n"));
     }
 
-    // Cancelar a reserva de um livro
+
     public String cancelarReserva(int estudanteId, int livroId) {
         Livro livroEscolhido = livroService.buscarLivroPorId(livroId);
 
@@ -71,7 +69,6 @@ public class ControllerBiblioteca {
         }
     }
 
-    // Exibir todos os livros disponíveis para reserva
     public void mostrarLivros() {
         List<Livro> livrosDisponiveis = livroService.listarLivros();
         System.out.println("Livros disponíveis para reserva:");
