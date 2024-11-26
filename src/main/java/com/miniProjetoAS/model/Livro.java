@@ -31,8 +31,12 @@ public class Livro {
         return ano;
     }
 
-    public String isReservado() {
-        return reservado;
+    public boolean isReservado() {
+        return "reservado".equalsIgnoreCase(reservado);
+    }
+
+    public void setReservado(boolean reservado) {
+        this.reservado = reservado ? "reservado" : "disponível";
     }
 
     public String toString() {

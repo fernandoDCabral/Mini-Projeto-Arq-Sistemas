@@ -1,6 +1,6 @@
 package com.miniProjetoAS.view;
 
-import com.miniProjetoAS.controller.ControllerEstudante;
+import com.miniProjetoAS.controller.ControllerAluno;
 import com.miniProjetoAS.controller.ControllerMatricula;
 import com.miniProjetoAS.controller.ControllerBiblioteca;
 
@@ -8,14 +8,14 @@ import java.util.Scanner;
 
 public class Menu {
 
-    private  ControllerEstudante controllerEstudante;
+    private ControllerAluno controllerEstudante;
     private ControllerMatricula controllerDisciplina;
     private ControllerBiblioteca controllerLivro;
     private  Scanner sc = new Scanner(System.in);
 
     public Menu() {
 
-        controllerEstudante = new ControllerEstudante();
+        controllerEstudante = new ControllerAluno();
         controllerDisciplina = new ControllerMatricula();
         controllerLivro = new ControllerBiblioteca();
     }

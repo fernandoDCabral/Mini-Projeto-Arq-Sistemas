@@ -6,7 +6,7 @@ import com.miniProjetoAS.model.Aluno;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class ControllerEstudante {
+public class ControllerAluno {
     private final AlunoService estudanteService = new AlunoService();
 
     public String listarEstudantesDeHistoriaPresencial() {
