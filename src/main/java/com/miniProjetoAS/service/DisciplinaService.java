@@ -11,22 +11,19 @@ import java.util.ArrayList;
 public class DisciplinaService {
     private final Map<Integer, Disciplina> disciplinasMap = new HashMap<>();
 
-    public DisciplinaService(HttpDisciplinas servicoDisciplinas) {
-        // Carrega todas as disciplinas no mapa local na inicialização
-        List<Disciplina> disciplinas = servicoDisciplinas.obterDisciplinas();
+    public DisciplinaService(HttpDisciplinas httpDisciplinas) {
+        List<Disciplina> disciplinas = httpDisciplinas.obterDisciplinas();
         for (Disciplina disciplina : disciplinas) {
             disciplinasMap.put(disciplina.getId(), disciplina);
         }
     }
 
-    // Buscar disciplina pelo ID
     public Disciplina buscarDisciplinaPorId(int disciplinaId) {
-        return disciplinasMap.get(disciplinaId); // Retorna a disciplina pelo ID
+        return disciplinasMap.get(disciplinaId);
     }
 
-    // Listar todas as disciplinas
     public List<Disciplina> listarDisciplinas() {
-        return new ArrayList<>(disciplinasMap.values()); // Retorna todas as disciplinas
+        return new ArrayList<>(disciplinasMap.values());
     }
 }
 

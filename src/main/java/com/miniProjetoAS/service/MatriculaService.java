@@ -9,13 +9,12 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-
 public class MatriculaService {
-    private final InterfaceHttpDisciplinas disciplinaService;
+    private final InterfaceHttpDisciplinas httpDisciplinas;
     private final Map<Integer, List<Disciplina>> matriculas;
 
-    public MatriculaService(InterfaceHttpDisciplinas disciplinaService) {
-        this.disciplinaService = disciplinaService;
+    public MatriculaService(InterfaceHttpDisciplinas httpDisciplinas) {
+        this.httpDisciplinas = httpDisciplinas;
         this.matriculas = new HashMap<>();
     }
 

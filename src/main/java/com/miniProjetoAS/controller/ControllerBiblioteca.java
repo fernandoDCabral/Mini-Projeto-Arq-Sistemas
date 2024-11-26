@@ -24,17 +24,11 @@ public class ControllerBiblioteca {
     public String reservarLivro(int estudanteId, int livroId) {
         Aluno estudante = estudanteService.buscarEstudantePorId(estudanteId);
         if (estudante != null && "ativo".equalsIgnoreCase(estudante.isStatus())) {
-
             Livro livroEscolhido = livroService.buscarLivroPorId(livroId);
-
             if (livroEscolhido != null) {
-                if (!livroEscolhido.isReservado()) {
-                    if (bibliotecaService.reservarLivro(estudante, livroEscolhido)) {
-                        livroEscolhido.setReservado(true);
-                        return "Reserva realizada com sucesso.";
-                    } else {
-                        return "Erro ao registrar a reserva.";
-                    }
+                boolean sucesso = bibliotecaService.reservarLivro(estudante, livroEscolhido);
+                if (sucesso) {
+                    return "Reserva realizada com sucesso.";
                 } else {
                     return "O livro já está reservado.";
                 }

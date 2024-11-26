@@ -10,40 +10,30 @@ import java.util.List;
 import java.util.Map;
 
 public class BibliotecaService {
-    private final InterfaceHttpLivros livroService;
+    private final InterfaceHttpLivros httpLivros;
     private final Map<Integer, List<Livro>> reservas;
 
-    public BibliotecaService(InterfaceHttpLivros livroService) {
-        this.livroService = livroService;
+    public BibliotecaService(InterfaceHttpLivros httpLivros) {
+        this.httpLivros = httpLivros;
         this.reservas = new HashMap<>();
     }
 
-    // reservar livro tentar usar buscar por id
-
     public boolean reservarLivro(Aluno estudante, Livro livro) {
-        if ("ativo".equalsIgnoreCase(estudante.isStatus())) {
-            // Verifica se já existe uma lista de reservas para o aluno
+        if (livro.isReservado()) {
+            return false;
+        }
+        if (estudante != null && "ativo".equalsIgnoreCase(estudante.isStatus())) {
             if (!reservas.containsKey(estudante.getId())) {
-                // Se não existir, cria uma nova lista e associa ao aluno
                 reservas.put(estudante.getId(), new ArrayList<>());
             }
-
-            // Adiciona o livro à lista de reservas do aluno
             reservas.get(estudante.getId()).add(livro);
-            return true; // Reserva realizada com sucesso
-        }
-        return false; // Reserva não realizada (aluno inativo)
-    }
-    /*
-    public boolean reservarLivro(Aluno estudante, Livro livro) {
-        if ("ativo".equalsIgnoreCase(estudante.isStatus())) {
-            reservas.computeIfAbsent(estudante.getId(), k -> new ArrayList<>()).add(livro);
+            livro.setReservado(true);
             return true;
+        }else{
+            return false;
         }
-        return false;
-    }
 
-     */
+    }
 
     public List<Livro> listarLivrosReservados(int estudanteId) {
         return reservas.getOrDefault(estudanteId, new ArrayList<>());

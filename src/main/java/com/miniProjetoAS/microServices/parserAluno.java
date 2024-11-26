@@ -9,7 +9,6 @@ import java.util.List;
 
 public class parserAluno implements JsonParser<Aluno> {
 
-
     @Override
     public List<Aluno> parse(String responseBody) {
         JSONArray estudantesArray = new JSONArray(responseBody);
