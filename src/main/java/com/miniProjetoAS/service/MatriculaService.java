@@ -1,5 +1,3 @@
-// Mudar para MATRICULA
-
 package com.miniProjetoAS.service;
 
 import com.miniProjetoAS.model.Aluno;
@@ -33,7 +31,6 @@ public class MatriculaService {
         return false;
     }
 
-    //mandar para o estudante
     public List<Disciplina> listarDisciplinasMatriculadas(int estudanteId) {
         return matriculas.getOrDefault(estudanteId, new ArrayList<>());
     }

@@ -18,6 +18,23 @@ public class BibliotecaService {
         this.reservas = new HashMap<>();
     }
 
+    // reservar livro tentar usar buscar por id
+
+    public boolean reservarLivro(Aluno estudante, Livro livro) {
+        if ("ativo".equalsIgnoreCase(estudante.isStatus())) {
+            // Verifica se já existe uma lista de reservas para o aluno
+            if (!reservas.containsKey(estudante.getId())) {
+                // Se não existir, cria uma nova lista e associa ao aluno
+                reservas.put(estudante.getId(), new ArrayList<>());
+            }
+
+            // Adiciona o livro à lista de reservas do aluno
+            reservas.get(estudante.getId()).add(livro);
+            return true; // Reserva realizada com sucesso
+        }
+        return false; // Reserva não realizada (aluno inativo)
+    }
+    /*
     public boolean reservarLivro(Aluno estudante, Livro livro) {
         if ("ativo".equalsIgnoreCase(estudante.isStatus())) {
             reservas.computeIfAbsent(estudante.getId(), k -> new ArrayList<>()).add(livro);
@@ -25,6 +42,8 @@ public class BibliotecaService {
         }
         return false;
     }
+
+     */
 
     public List<Livro> listarLivrosReservados(int estudanteId) {
         return reservas.getOrDefault(estudanteId, new ArrayList<>());

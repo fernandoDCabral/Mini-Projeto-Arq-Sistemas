@@ -23,17 +23,16 @@ public class ControllerBiblioteca {
         this.estudanteService = new AlunoService();  // Inicializa o serviço do aluno
     }
 
-    // Método para reservar um livro
     public String reservarLivro(int estudanteId, int livroId) {
         Aluno estudante = estudanteService.buscarEstudantePorId(estudanteId);
         if (estudante != null && "ativo".equalsIgnoreCase(estudante.isStatus())) {
-            // Buscando o livro pelo ID usando LivroService
+
             Livro livroEscolhido = livroService.buscarLivroPorId(livroId);
 
             if (livroEscolhido != null) {
                 if (!livroEscolhido.isReservado()) {
                     if (bibliotecaService.reservarLivro(estudante, livroEscolhido)) {
-                        livroEscolhido.setReservado(true); // Marca o livro como reservado
+                        livroEscolhido.setReservado(true);
                         return "Reserva realizada com sucesso.";
                     } else {
                         return "Erro ao registrar a reserva.";
@@ -49,7 +48,6 @@ public class ControllerBiblioteca {
         }
     }
 
-    // Listar todos os livros reservados por um estudante
     public String listarLivrosReservados(int estudanteId) {
         List<Livro> livros = bibliotecaService.listarLivrosReservados(estudanteId);
         return livros.isEmpty()
